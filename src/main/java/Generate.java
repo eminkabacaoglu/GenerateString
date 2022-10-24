@@ -25,7 +25,7 @@ public class Generate implements Runnable{
         try {
             checkCombination(max,min,wantedStringNum,set);
             for(int i =min;i<=max;i++){
-                printAllKLength(set, i);
+                writeAllKLength(set, i);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -49,15 +49,15 @@ public class Generate implements Runnable{
         }
 
     }
-    public void printAllKLength(char[] set, int k)
+    public void writeAllKLength(char[] set, int k)
     {
         int n = set.length;
-        printAllKLengthRec(set, "", n, k);
+        writeAllKLengthRec(set, "", n, k);
 
     }
 
     public List<String> strings = new ArrayList<String>();
-    public void printAllKLengthRec(char[] set, String prefix, int n, int k) {
+    public void writeAllKLengthRec(char[] set, String prefix, int n, int k) {
         if (k == 0)
         {
             strings.add(prefix);
@@ -67,7 +67,7 @@ public class Generate implements Runnable{
         for (int i = 0; i < n; ++i)
         {
             String newPrefix = prefix + set[i];
-            printAllKLengthRec(set, newPrefix, n, k - 1);
+            writeAllKLengthRec(set, newPrefix, n, k - 1);
         }
     }
 
